@@ -9,7 +9,7 @@ import { AiOutlinePlus } from 'react-icons/ai'
 import { BiChevronDown } from 'react-icons/bi'
 
 export default function Card({ movieData, isLiked = false }) {
-    const [isHoverd, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
 
     const navigate = useNavigate();
     return (
@@ -22,7 +22,7 @@ export default function Card({ movieData, isLiked = false }) {
                 alt="movie"
             />
             {
-                isHoverd && (
+                isHovered && (
                     <div className="hover">
                         <div className="image-video-container">
                             <img
@@ -33,12 +33,12 @@ export default function Card({ movieData, isLiked = false }) {
                             <video src={video}
                                 autoPlay
                                 loop
-                                muted
+                                // muted
                                 onClick={() => navigate('/player')}
                             ></video>
                         </div>
                         <div className="info-container flex column">
-                            <h3 className='name' onClick={() => navigate('/player')}>
+                            <h3 className="name" onClick={() => navigate("/player")}>
                                 {movieData.name}
                             </h3>
                             <div className="icons flex j-betwwen">
@@ -83,6 +83,7 @@ const Container = styled.div`
     height: 100%;
     cursor: pointer;
     position: relative;
+    margin: 10px 0 10px 10px;
     
     img {
         border-radius: 0.2rem;
@@ -106,5 +107,59 @@ const Container = styled.div`
 
     .hover .image-video-container {
         position: relative;
+        height: 140px;
+    }
+
+    .image-video-container img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 0.3rem;
+        top: 0;
+        z-index: 4;
+        position: absolute;
+    }
+
+    .image-video-container video {
+        
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 0.3rem;
+        top: 0;
+        z-index: 5;
+        position: absolute;
+    }
+
+    .info-container {
+        padding: 1rem;
+        gap: 0.5rem;    
+    }
+
+    .info-container .icons .controls {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .info-container .icons svg {
+        font-size: 2rem;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+    }
+
+    .info-container .icons svg:hover {
+        color: #b8b8b8;
+    }
+
+    .info-container .genres ul {
+        gap: 1rem;
+    }
+
+    .info-container .genres ul li {
+        padding-right: 0.7rem;
+    }
+
+    .info-container .genres ul li:first-of-type {
+        list-style-type: none;
     }
 `;
