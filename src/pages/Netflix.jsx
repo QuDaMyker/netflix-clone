@@ -5,26 +5,33 @@ import backgroundImage from '../assets/home.jpg'
 import { FaPlay } from 'react-icons/fa'
 import { AiOutlineInfoCircle } from 'react-icons/ai'
 import styled from 'styled-components'
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { getGenres } from '../store'
+import { useFetcher, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovies, getGenres } from '../store'
+import Slider from '../components/Slider'
 
 
 export default function Netflix() {
     const [isScrolled, setIsScrolled] = useState(false);
-    const navigate = useNavigate();
+    const genresLoaded = useSelector((state) => state.netflix.genresLoaded);
+    const movies = useSelector((state) => state.netflix.movies);
 
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getGenres())
     }, []);
 
+    useEffect(() => {
+        if (genresLoaded) dispatch(fetchMovies({ type: 'all' }));
+    })
 
     window.onscroll = () => {
         const isScrolled = (window.scrollX > 0 || window.scrollY > 0);
         setIsScrolled(isScrolled);
     };
 
+    console.log(movies);
     return (
         <Container>
             <Navbar isScrolled={isScrolled} />
@@ -48,6 +55,7 @@ export default function Netflix() {
                     </div>
                 </div>
             </div>
+            <Slider movies={movies} />
         </Container>
     );
 }
@@ -69,7 +77,7 @@ const Container = styled.div`
 
     .hero .container {
         position: absolute;
-        buttom: 5rem;
+        top: 9rem;
     }
 
     .container .logo img {

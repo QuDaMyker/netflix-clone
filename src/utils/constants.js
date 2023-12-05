@@ -1,2 +1,3 @@
 export const API_MOVIEDB_KEY = '9dc6b5c011c6c1a44c426a4abab78d05';
 export const TBDB_BASE_URL = 'https://api.themoviedb.org/3';
+export const ACCESS_TOKEN_TBDB = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ZGM2YjVjMDExYzZjMWE0NGM0MjZhNGFiYWI3OGQwNSIsInN1YiI6IjY1NmRmZDY2NTY4NDYzMDEwZjgzZjkwZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8xKdTczYE5lLdBQDr0C1vdDYsf84MMqL5IKOZACUL-4'
