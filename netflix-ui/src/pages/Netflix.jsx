@@ -5,7 +5,7 @@ import backgroundImage from '../assets/home.jpg'
 import { FaPlay } from 'react-icons/fa'
 import { AiOutlineInfoCircle } from 'react-icons/ai'
 import styled from 'styled-components'
-import { useFetcher, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies, getGenres } from '../store'
 import Slider from '../components/Slider'
