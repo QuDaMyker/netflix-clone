@@ -44,7 +44,7 @@ export default function Card({ movieData, isLiked = false }) {
                             <div className="icons flex j-betwwen">
                                 <div className="controls flex">
                                     <IoPlayCircleSharp title='play'
-                                        onClick={() => navigate('/play')}
+                                        onClick={() => navigate('/player')}
                                     />
                                     <RiThumbUpFill title='Like' />
                                     <RiThumbDownFill title='Dislike' />

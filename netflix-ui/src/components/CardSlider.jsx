@@ -3,7 +3,7 @@ import Card from './Card'
 import styled from 'styled-components'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
-export default function CardSlider({ data, title }) {
+function CardSlider({ data, title }) {
     const [showControls, setShowControls] = useState(false);
     const [sliderPosition, setSliderPosition] = useState(0);
     const listRef = useRef();
@@ -23,7 +23,7 @@ export default function CardSlider({ data, title }) {
         <Container
             className='flex column'
             onMouseEnter={() => setShowControls(true)}
-            onmouseleave={() => setShowControls(false)}
+            onMouseLeave={() => setShowControls(false)}
         >
             <h1>{title}</h1>
             <div className="wrapper">
@@ -44,7 +44,7 @@ export default function CardSlider({ data, title }) {
 
         </Container>
     )
-}
+};
 
 const Container = styled.div`
     gap: 1rem;
@@ -75,7 +75,6 @@ const Container = styled.div`
 
     .wrapper .slider-action:hover {
         background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 2%;
         cursor: pointer;
     }
 
@@ -95,3 +94,5 @@ const Container = styled.div`
         right: 0;
     }
 `;
+
+export default React.memo(CardSlider);

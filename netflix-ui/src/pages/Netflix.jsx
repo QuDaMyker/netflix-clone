@@ -24,14 +24,13 @@ export default function Netflix() {
 
     useEffect(() => {
         if (genresLoaded) dispatch(fetchMovies({ type: 'all' }));
-    })
+    }, [genresLoaded])
 
     window.onscroll = () => {
         const isScrolled = (window.scrollX > 0 || window.scrollY > 0);
         setIsScrolled(isScrolled);
     };
 
-    console.log(movies);
     return (
         <Container>
             <Navbar isScrolled={isScrolled} />
